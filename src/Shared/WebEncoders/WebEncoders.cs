@@ -353,7 +353,7 @@ namespace Microsoft.Extensions.Internal
 
             int bufferSize = GetArraySizeRequiredToEncode(input.Length);
 
-            char[] bufferToReturnToPool = null;
+            char[]? bufferToReturnToPool = null;
             Span<char> buffer = bufferSize <= 128
                 ? stackalloc char[bufferSize]
                 : bufferToReturnToPool = ArrayPool<char>.Shared.Rent(bufferSize);
